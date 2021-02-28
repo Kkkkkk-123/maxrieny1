@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="../css/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../css/main-3.css" rel="stylesheet" type="text/css">
+  <script src="../js/jquery-3.4.1.min.js"></script>
+  <style>
+    .login {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .login input {
+      outline: none;
+      border: 1px solid #ccc;
+    }
+
+    .login .box .log .wrap {
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 4px;
+      z-index: 100;
+    }
+
+    .login .box .log .wrap .head {
+      display: flex;
+      justify-content: center;
+      font-size: 20px;
+      color: #333;
+      padding-top: 40px;
+    }
+
+    .login .box .log .wrap .head .head_left a {
+      text-decoration: none;
+    }
+
+    .login .box .log .wrap .head .line {
+      color: #ddd;
+      width: 1px;
+      height: 2px;
+      margin: 0 20px;
+    }
+
+    .login .box .log .wrap .head .head_center a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .login .box .log .wrap .head .head_right {
+      position: relative;
+    }
+
+    .login .box .log .wrap .head .head_right em {
+      font-size: 20px;
+      font-style: normal;
+      color: #ccc;
+      position: absolute;
+      top: -25px;
+      right: -90px;
+    }
+
+    .login .box .log .wrap .footer {
+      margin: 0 30px;
+      padding: 22px 0 40px 0;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .login .box .log .wrap .footer .tel input {
+      width: 278px;
+      padding: 10px;
+      color: #999;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .login .box .log .wrap .footer .pass input {
+      /* padding: 10px;
+      color: #999;
+      font-size: 14px; */
+      width: 278px;
+      padding: 10px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .login .box .log .wrap .footer .pass .short {
+      width: 180px;
+    }
+
+    .login .box .log .wrap .footer .pass .get {
+      width: 75px;
+      border-left: none;
+      background: #fcf9f9;
+      color: #36b447;
+    }
+
+    .login .box .log .wrap .footer .subm input {
+      width: 300px;
+      height: 40px;
+      background: #36b447;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 3px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .login .box .log .wrap .text {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .login .box .log .wrap .text span {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .userLogin {
+      color: #36b447 !important;
+      border-bottom: 1px solid #36b447;
+    }
+
+    .register {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .register input {
+      outline: none;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    .register .register_box {
+      background: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 4px;
+      z-index: 100;
+    }
+
+    .register .register_box .register_hide {
+      padding-top: 40px;
+      text-align: center;
+      color: #333;
+      font-size: 20px;
+    }
+
+    .register .register_box .register_hide span {
+      color: #36b447;
+    }
+
+    .register .register_box .register_hide em {
+      font-size: 20px;
+      font-style: normal;
+      color: #ccc;
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+
+    .register .register_box .register_content {
+      margin: 0 60px;
+      padding: 30px 0 40px 0;
+    }
+
+    .register .register_box .register_content .content_tel input {
+      width: 280px;
+      padding: 10px 10px 10px 40px;
+    }
+
+    .register .register_box .register_content .content_ver input {
+      padding: 10px 10px 10px 40px;
+      width: 130px;
+    }
+
+    .register .register_box .register_content .content_ver span {
+      color: #36b447;
+    }
+
+    .register .register_box .register_content .content_ver .code {
+      width: 100px;
+      height: 40px;
+    }
+
+    .register .register_box .register_content .content_get input {
+      padding: 10px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .register .register_box .register_content .content_get .short {
+      width: 190px;
+    }
+
+    .register .register_box .register_content .content_get .get {
+      width: 100px;
+      border-left: none;
+      background: #fcf9f9;
+      color: #36b447;
+    }
+
+    .register .register_box .register_content .content_pass input {
+      width: 280px;
+      padding: 10px 10px 10px 40px;
+    }
+
+    .register .register_box .register_content .content_check span {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .register .register_box .register_content .content_check a {
+      color: #36b447;
+    }
+
+    .register .register_box .register_content .content_sub input {
+      width: 330px;
+      height: 42px;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      background: #36b447;
+    }
+
+    .register .register_box .register_content .content_text {
+      text-align: right;
+      color: #6f6f6f;
+    }
+
+    .register .register_box .register_content .content_text i {
+      font-style: normal;
+      color: #36b447;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="d-1 dao-h">
+    <div id="logo"><img src="" alt="">MAXRIENY</div>
+
+    <ul class="nav nav-pills nv-1">
+      <li role="presentation" class="active"><a href="../index1.html">返回首页</a></li>
+      <li role="presentation"><a href="">登录</a></li>
+  </div>
+  <img src="../../img/5.jpg" style="width: 100%;" alt="">
+
+  <!-- 登录  -->
+  <div class="login">
+    <div class="box">
+      <div class="log">
+        <div class="wrap">
+          <div class="head">
+            <div class="head_left">
+              <a href="#" onclick="userCode(1)">用户登录</a>
+            </div>
+            <div class="head_right ">
+              <em onclick="del()">X</em>
+            </div>
+          </div>
+          <div class="footer ">
+            <div class="tel ">
+              <input type="text" id="inp2" placeholder="手机号 ">
+            </div>
+            <div class="pass">
+              <input type="password" id="pass2" placeholder="密码 ">
+              <!-- <input type="text" placeholder="短信验证码" class="short"><input type="text" class="get"
+                style="cursor: pointer;" value="获取验证码" onclick="f1()"> -->
+            </div>
+            <div class="subm">
+              <input type="submit" id="sub2" value="登录 " onclick="login_phone()">
+            </div>
+            <div class="text ">
+              <div>还没账号?<span onclick="fast()" style="cursor: pointer;">快速注册</span></div>
+
+              <span style="cursor: pointer;">找回密码</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 注册 -->
+  <div class="register">
+    <div class="register_box">
+      <div class="register_hide">
+        <span>手机号注册</span>
+        <em onclick="dele()">X</em>
+      </div>
+      <div class="register_content">
+        <div class="content_tel">
+          <input type="text" id="inp1" placeholder="手机号">
+        </div>
+
+        <div class="content_pass">
+          <input type="password" id="pass1" placeholder="密码（8-20个字符）">
+        </div>
+        <div class="content_check">
+          <input type="checkbox">
+          <span>阅读并同意 <a href="https://i.360.cn/reg/protocol">《maxrieny用户服务条款》</a>和<a
+              href="https://i.360.cn/reg/privacy">《maxrieny用户隐私政策》</a> </span>
+        </div>
+        <div class="content_sub">
+          <input type="submit" id="sub1" value="注册">
+        </div>
+        <div class="content_text">
+          <span>已有账号? <i onclick="href()" style="cursor: pointer;">直接登录</i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    dele();
+
+    // 点击隐藏登录
+    function del() {
+      $('.login').hide();
+    }
+
+    function dele() {
+      $('.register').hide();
+    }
+    // 直接登录
+    function href() {
+      $('.register').hide();
+      $('.login').show();
+    }
+    // 快速注册
+
+    function fast() {
+      $('.login').hide();
+      $('.register').show();
+    }
+
+
+    // 登录正则
+    function login_phone() {
+      let res = $('.tel input').val();
+      console.log(res);
+
+      // var code = $('.pass .short').val();
+      // console.log(code);
+      let phone = $('.tel input').val();
+      console.log(phone);
+
+      layui.use('layer', function () {
+        var layer = layui.layer;
+        if (!/^1(3|5|7|8|9|6)\d{9}$/.test(phone)) return layer.msg('请输入正确的手机号');
+        if (!code || code != random) {
+          return layer.msg('请输入正确的验证码');
+        }
+        $('.login').hide();
+
+      });
+      alert('登录成功')
+    }
+
+
+    // var inp1 =$('#inp1').value;
+    // var pass = $('#pass1').value;
+
+    // 注册
+    var inp1 = document.querySelector('#inp1');
+    var pass1 = document.querySelector('#pass1');
+    var sub1 = document.querySelector('#sub1');
+
+    var obj = {};
+    sub1.onclick = function () {
+      obj = {
+        input: inp1.value,
+        password: pass1.value
+
+      };
+
+      $.post('../api/login.php', obj, function (data) {
+        console.log(data);
+        if (data == '1') {
+          var res = JSON.parse(data);
+          console.log(res);
+          document.cookie = '账号=' + '|' + obj.input + ';path=/';
+          document.cookie = '密码=' + '|' + obj.password + ';path=/';
+          dele();
+          // alert('注册成功,可以登录您的账号啦');
+          // href();
+
+          location.href = '../index1.html';
+        }
+      });
+
+    };
+
+    // 登录
+    var inp2 = document.querySelector('#inp2');
+    var pass2 = document.querySelector('#pass2');
+    var sub2 = document.querySelector('#sub2');
+
+    var obj1 = {};
+    sub2.onclick = function () {
+      obj1 = {
+        input1: inp2.value,
+        password1: pass2.value
+      };
+
+      $.post('../api/login1.php', obj1, function (data) {
+        console.log(data);
+        if (data !== '1') {
+
+          var res = JSON.parse(data);
+
+          document.cookie = '账号=' + '|' + obj1.input1 + ';path=/';
+          document.cookie = '密码=' + '|' + obj1.password1 + ';path=/';
+
+          // location.href='../index1.html';
+          let url = localStorage.getItem('url');
+          console.log(url);
+
+          if(url!=null){
+            location.href=url;
+            
+            localStorage.removeItem('url'); 
+          }else{
+            location.href='../index1.html';
+          }
+        } else {
+
+          alert('该用户不存在,请重新输入');
+          inp2.value = '';
+          pass2.value = '';
+
+        }
+      })
+    }
+  </script>
+
+
+</body>
+
+</html>

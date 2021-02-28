@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>无标题文档</title>
+	<link href="./css/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="./css/main-3.css" rel="stylesheet" type="text/css">
+	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/user.js"></script>
+	
+
+</head>
+
+<body>
+	<header>
+		<div class="d-1 dao-h">
+			<div id="logo"><img src="" alt="">MAXRIENY</div>
+			<ul class="nav nav-pills nv-1">
+				
+				<li role="presentation" id="deng" style ="padding-right: 40px;"><a href="./html/login.html" >登录</a></li>
+				
+
+			</ul>
+		</div>
+		<div class="navBox">
+			<ul class="navList">
+				<li><a href="">灵感大片</a>
+					<ul class="nav2">
+						<li><a href="">21春夏 天使恶魔</a></li>
+						<li><a href="">20秋冬 BY SARA WONG</a></li>
+						<li><a href="">20春夏 给自己的一封情书</a></li>
+						<li><a href="">19秋冬 奇迹星辰</a></li>
+						<li><a href="">18春夏 消失的迷宫</a></li>
+					</ul>
+				</li>
+				<li><a href="">产品系列</a>
+				<ul class="nav2">
+					<li><a href="./html/list1.html" >MAXRIENY BY SARA WONG</a></li>
+					<li><a href="">MAXRIENY EVENT</a></li>
+					<li><a href="">MAXRIENY WEDDING</a></li>
+					<li><a href="">MAXRIENY </a></li>
+					<li><a href="">MAXRIENY HOME</a></li>
+				</ul>
+				</li>
+				<li><a href="">关于品牌</a>
+				<ul class="nav2">
+					<li><a href="">品牌态度</a></li>
+					<li><a href="">品牌故事</a></li>
+					<li><a href="">品牌创始人</a></li>
+				</ul>
+				</li>
+				<li><a href="">奇幻事件</a>
+				<ul class="nav2">
+					<li><a href="">全星玩法</a></li>
+					<li><a href="">温柔力量</a></li>
+					<li><a href="">精灵捕手</a></li>
+					<li><a href="">品牌新闻</a></li>
+				</ul>
+				</li>
+				<li><a href="">魔法城堡</a>
+				<ul class="nav2">
+					<li><a href="">主题城堡</a></li>
+					<li><a href="">城堡查询</a></li>
+					
+				</ul>
+				</li>
+				<li><a href="">线上商城</a>
+				<ul class="nav2">
+					<li><a href="">MAXRIENY官方天猫旗舰店
+						</a></li>
+					<li><a href="">MAXRIENY HOME 家居馆</a></li>
+					
+				</ul>
+				</li>
+				<li><a href="">女王中心</a>
+				<ul class="nav2">
+					<li><a href="" style=" background-color:rgba(220,38,38,0.0);"><img src="../img/vip.jpg" style="width: 95px; " alt=""></a></li>
+				</ul>
+				</li>
+			</ul>
+
+		</div>
+
+		<div class="jumbotron jv-mu">
+			<h1></h1>
+			<p></p>
+			<p><a class="btn btn-primary btn-lg" href="./html/list.html" role="button">了解更多</a></p>
+		</div>
+	</header>
+	<main>
+		<div class="zheng-w" >
+			<div class="m-biaot">
+				<h2>2021 春夏大片 BY SARA WONG
+				</h2>
+
+			</div>
+			<!--渲染数据 V-->
+			<div class="box" style="display: flex; justify-content: space-evenly;">
+				<!-- <div class="row" id ="we" >
+					<ul class="col-sm-6 col-md-4" >
+						<li class="thumbnail">
+							<img src="../img/zw4.jpg" alt="...">
+							<div class="caption">
+								<h3>MAXRIENY2021</h3>
+								<p>春夏新款衬衫连衣裙遮肉减龄别致复古收腰显瘦温柔气质</p>
+								<p>￥：<span style="color: red;">1890.00</span></p>
+
+								<p><a href="#" class="btn btn-primary" role="button">查看购物车</a> <a href="#"
+										class="btn btn-default" role="button">查看商品详情</a></p>
+							</div>
+						</li>
+					</ul>
+					
+				</div> -->
+				
+			</div>
+
+		</div>
+
+	</main>
+	<footer>
+		<div class="di-b">
+				<ul style="float: left; padding: 10px 150px; color: #337ab7;">
+					<li style="width: 600px;">联系方式</li>
+					<li style="width: 600px;">地址：深圳市南山区南山街道科苑路8号讯美科技广场2号楼11层A座</li>
+					<li style="width: 600px;">电话号码 ：0755-83437455</li>
+				</ul>
+				<ul style="float: right; color: white; padding: 10px 0;">
+					<li style="width: 200px;"><a href="">公司简介</a></li>
+					<li style="width: 200px;"><a href="">人才招聘</a></li>
+					<li style="width: 200px;"><a href="">联系我们</a></li>
+				</ul>
+				
+		</div>
+	</footer>
+</body>
+<script>
+	var jm = document.querySelector('.jv-mu');
+	var lb = ['../img/zw.jpg', '../img/7.jpg', '../img/zw3.jpg', '../img/6.jpg','../img/4.jpg',];
+	var xib = 0;
+	setInterval(() => {
+		if (xib >= lb.length - 1) {
+			xib = 0;
+		} else {
+			xib++;
+		}
+		jm.style.backgroundImage = `url(${lb[xib]}) `;
+	}, 1000);
+
+	let box =document.querySelector('.box');
+
+	var sj ='';
+	
+	$.get('./api/index1.php',function(data){
+		let fg=JSON.parse(data)
+		for(let i = 0; i<3;i++){
+			sj += `<div class="row" id = "we">
+			<ul class="col-sm-6 col-md-4" style="width:100%;height:"520px">
+						<li class="thumbnail" >
+							<img src="${fg[i].goods_big_logo}" alt="...">
+							<div class="caption">
+								<h3>MAXRIENY2021</h3>
+								<p>${fg[i].goods_name}</p>
+								<p>￥：<span style="color: red;">${fg[i].goods_price}</span></p>
+
+								<p><a href="./html/car.html" class="btn btn-primary" role="button" id="${fg[i].goods_id}">查看购物车</a> <a href="./html/detail.html?${fg[i].goods_id}"
+										class="btn btn-default" role="button">查看商品详情</a></p>
+							</div>
+						</li>
+					</ul>
+					</div>`;
+					
+		}
+		// var look = document.querySelector('.box');
+
+		box.onclick=function(e){
+			
+			console.log(e.target);
+		}
+
+		box.innerHTML =sj;
+		});
+
+		var deng = document.querySelector('#deng');
+		var login=document.cookie;
+		
+		if(login.indexOf('|')!=-1){
+			deng.innerHTML = user(login)[0];
+			
+		}
+
+
+		
+
+</script>
+
+</html>

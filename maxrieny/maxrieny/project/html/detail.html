@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="../css/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="../css/main-3.css" rel="stylesheet" type="text/css"> -->
+
+
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+
+
+</head>
+
+<body>
+    <h1>我是详情页</h1>
+
+    <div class="box">
+
+
+        <div class="container">
+
+        </div>
+        <!-- <img src="../html/login.html" alt=""> -->
+    </div>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/ajax.js"></script>
+    <!-- <script src="../js/detail.js"></script> -->
+
+    <script>
+        var container = document.querySelector('.container');
+        var id = {};
+
+        id.id = window.location.search;
+
+        var s = id.id.substr(id.id.lastIndexOf("?") + 1);
+        id.id = s;
+        var sj = '';
+        $.get('../api/getDetail.php', id, function (data) {
+            // console.log(JSON.parse(data).detail);
+            var res = JSON.parse(data).detail;
+            console.log(res);
+
+            sj = `<ol class="breadcrumb">
+            <li><a href="#">详情</a></li>
+            </ol>
+            <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img src="${res.goods_big_logo}" style="width:300px" alt="">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">${res.goods_name}
+                </h4>
+                <div class="price">
+                    <i class="glyphicon glyphicon-yen"></i>
+                    <span>${res.goods_price}</span>
+                </div>
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default">XL</button>
+                    <button type="button" class="btn btn-default">L</button>
+                    <button type="button" class="btn btn-default">M</button>
+                    <button type="button" class="btn btn-default">S</button>
+                    <button type="button" class="btn btn-default">XS</button>
+                </div>
+
+                <div class="car">
+                    <a href ="../html/car.html?${s}">
+                        <button class="btn btn-warning btn-lg" id="gocar">查看购物车</button>
+                        </a>
+                    
+                    <button class="btn btn-danger btn-lg " id="addcar">加入购物车</button>
+                        
+                    
+                </div>
+            </div>
+            </div>
+
+            <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="#">Home</a></li>
+            <li role="presentation"><a href="#">Profile</a></li>
+            <li role="presentation"><a href="#">Messages</a></li>
+            </ul>
+            <div class="goods_detail">
+
+            </div>`;
+            container.innerHTML = sj;
+        });
+
+        container.onclick = function (e) {
+            if (e.target.id == 'addcar') {
+
+                var login1 = document.cookie;
+                var username = login1.substr(login1.indexOf('|') + 1, login1.indexOf(';') - 4);
+                console.log(username);
+
+                if (login1.indexOf('|') != -1) {
+
+                    $.post('../api/addCar.php', {
+                        goods_id: s,
+                        username: username
+                    }, function (data) {
+
+                    })
+                    location.href = './car.html?' + s;
+                    console.log(login1);
+                } else {
+
+                    localStorage.setItem('url', location.href);
+                    location.href = '../html/login.html';
+                }
+
+                console.log(s);
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

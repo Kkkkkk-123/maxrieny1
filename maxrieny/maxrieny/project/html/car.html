@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/car.css">
+
+    <script src="../js/cookie.js"></script>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" class="allChecked"> 全选
+                    </label>
+                    <div class="panel_right">
+                        <a href="#" style="margin-right: 50px;">商品种类<span class="badge species">1</span></a>
+                        <a href="#">所选商品数量<span class="badge number">0</span></a>
+                    </div>
+                </h3>
+            </div>
+
+            <div class="panel-body">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="#" class="media_left">
+                            <input type="checkbox">
+                            <img class="media-object" style="width: 100px;" src="" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="media_body_left">
+                            <h4 class="media-heading">MAXRIENY2021春新款衬衫连衣裙遮肉减龄别致复古收腰显瘦温柔气质</h4>
+                            <div class="price">
+                                <i class="glyphicon glyphicon-yen"></i>
+                                <span>2345.00</span>
+                            </div>
+                        </div>
+                        <div class="media_body_center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default reduce">-</button>
+                                <button type="button" class="btn btn-default">0</button>
+                                <button type="button" class="btn btn-default add">+</button>
+                            </div>
+                        </div>
+                        <div class="media_body_right">
+                            <span class="item_total">小计:￥2345</span>
+                            <span class="glyphicon glyphicon-remove" id="del"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <span>总价格:￥<span class="total">32432</span></span>
+                <button idx="${item.goods_id}" class="btn btn-info settlement">结算</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var container = document.querySelector('.container');
+        var panel = document.querySelector('.panel-body');
+        var badge = document.querySelector('.badge');
+        var footer = document.querySelector('.panel-footer');
+
+
+        var login1 = document.cookie;
+        var username = login1.substr(login1.indexOf('|') + 1, login1.indexOf(';') - 4);
+        var ids = {};
+        ids.id = window.location.search;
+        var goods_id = ids.id.substr(ids.id.lastIndexOf("?") + 1);
+        if (username != '') {
+            $.get('../api/getCarData.php', {
+                username: username,
+                goods_id: goods_id
+            }, function (data) {
+
+                var data1 = JSON.parse(data);
+                var data2 = data1.data2;
+                var sj = '';
+                data2.forEach(item => {
+                    sj += `<div class="media">
+                    <div class="media-left">
+                        <a href="#" class="media_left">
+                            <input type="checkbox" class="checked" ${item.is_select ? "checked" :''} idx="${item.goods_id}">
+                            <img class="media-object" style="width: 100px;"
+                                src="${item.goods_big_logo}"
+                                alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <div class="media_body_left">
+                            <h4 class="media-heading">${item.goods_name}</h4>
+                            <div class="price">
+                                <i class="glyphicon glyphicon-yen"></i>
+                                <span>${item.goods_price}</span>
+                            </div>
+                        </div>
+                        <div class="media_body_center">
+                            <div class="btn-group" role="group" aria-label="...">
+                                <button type="button" class="btn btn-default reduce">-</button>
+                                <button type="button" class="btn btn-default">1</button>
+                                <button type="button" class="btn btn-default add">+</button>
+                            </div>
+                        </div>
+                        <div class="media_body_right">
+                            <span class="item_total">小计:￥2345</span>
+                            <span idx="${item.goods_id}" class="glyphicon glyphicon-remove" del="del"></span>
+                        </div>
+                    </div>
+                </div>`;
+                });
+                panel.innerHTML = sj;
+                badge.innerHTML = data2.length;
+            });
+
+        } else {
+            location.href = '../index1.html';
+        };
+
+        container.onclick = function (e) {
+            if (e.target.className == 'glyphicon glyphicon-remove') {
+                var goods_id1 = e.target.getAttribute("idx");
+                console.log(goods_id1);
+
+                $.get('../api/deleteCar.php', {
+                    username: username,
+                    goods_id: goods_id1
+                }, function () {
+
+                });
+                e.path[3].remove();
+
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

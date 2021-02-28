@@ -1,0 +1,196 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.heard {
+    width: 1200px;
+    height: 160px;
+    margin: 0 auto;
+}
+
+.shousuo {
+    margin-top: 20px;
+    width: 450px;
+    height: 38px; 
+    margin-left: 650px;
+}
+
+.shousuo input {
+    float: left;
+    width: 250px;
+    height: 38px;
+    outline: none;
+}
+.na{
+    margin-top: 20px;
+}
+.na span{
+    float: left;
+    margin-left: 35px;
+}
+.li{
+    margin-left: 114px;
+}
+
+.na .li{
+    float: left;
+}
+.na .li li{
+    float: left;
+}
+.na .li li a{
+    height: 50px;
+    line-height: 50px;
+    text-decoration: none;
+    margin-left: 30px;
+    margin-top: 40px;
+    padding-right: 20px;
+    font-size: 15px;
+    border-right: 1px solid rgba(10, 10, 10, 0.8);
+    color: rgba(10, 10, 10, 0.8);
+    cursor: pointer;
+}
+.na .li li a:hover{
+    color: #b81b22;
+}
+button {
+    float: left;
+    width: 80px;
+    height: 38px;
+    background-color: #b81b22;
+    outline: none;
+    color: #fff;
+    border: none;
+}
+.gouw{
+    margin-left: 20px;
+}
+.container {
+    border-top: 1px solid #cccc;
+    padding-bottom: 30px;
+    padding-top: 20px;
+}
+
+.na {
+    background-color: aqua;
+}
+
+ul {
+    overflow: hidden;
+}
+
+.list-item {
+    width: 260px;
+    border: 1px solid #ccc;
+    float: left;
+    margin: 10px 10px;
+}
+
+.list-item .row {
+    margin: 0;
+}
+
+.list-item .title {
+    margin-top: 10px;
+    /* display: flex;
+    justify-content: center; */
+    margin: auto;
+}
+
+.list-item .title .breadcrumb {
+    height: 36px;
+    overflow: hidden;
+}
+
+.list-item .row h3 {
+    text-overflow: ellipsis;
+    /*有些示例里需要定义该属性，实际可省略*/
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /*规定超过两行的部分截断*/
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    word-break: break-all;
+    /*在任何地方换行*/
+}
+
+.list-item .row .price {
+    font-size: 30px;
+    color: red
+}
+
+.page {
+    height: 40px;
+    border: 1px solid #ffff;
+    width: 60%;
+    margin: auto;
+}
+
+.page p {
+    cursor: pointer;
+}
+
+/* .li li{
+    float: left;
+} */
+.hotWord{
+    font-size: 10px;
+    color: rgb(148, 143, 143);
+    padding-top: 10px;
+    padding-left: 650px;
+}
+.hotWord a{
+    font-size: 10px;
+    color: rgb(148, 143, 143);
+    text-decoration: none;
+    cursor: pointer;
+}
+.footBottomTab{
+    height: 200px;
+    margin-top: 30px;
+    border-top: 1px solid #ccc;
+}
+.footBottomTab p{
+    margin-top: 20px;
+    text-align: center;
+}
+#footer{
+    border-top: 1px solid #cccc;
+    width: 1135px;
+    margin:20px auto;
+    padding-top: 30px;
+}
+.copyrights{
+    text-align: center;
+}
+.certs{
+    margin-top: 20px;
+    margin-left: 300px;
+}
+.shousuo{
+    position: relative;
+}
+#box{
+    position: absolute;
+    width: 250px;
+    height: 320px;
+    top: 38px;
+    border: 1px solid #cccc;
+    background-color: #ffff;
+    display: none;
+}
+#p{
+    width: 300px;
+    border: 1px solid rgba(49, 91, 182, 0.8);
+    display: none;
+    cursor: pointer;
+}
+.active{
+    background-color: #ccc;
+}
